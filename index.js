@@ -1,3 +1,4 @@
+const res = require("express/lib/response");
 const mongoose = require("mongoose");
 
 mongoose
@@ -40,5 +41,21 @@ async function getUsers() {
   console.log(users);
 }
 
-getUsers();
+async function updateUser(id){
+    const user = await User.findById(id);
+    if(!user) return;
+
+    user.set({
+        first_name: "Fateme",
+        admin: true        
+    })
+
+    const result = user.save();
+    console.log(result);
+}
+
+updateUser('6596ee55ca67bfc63016fb3d')
+
+
+// getUsers();
 // createUser();
