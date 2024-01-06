@@ -54,8 +54,10 @@ async function updateUser(id){
     console.log(result);
 }
 
-updateUser('6596ee55ca67bfc63016fb3d')
-
-
+async function removeUser(id){
+    const result = await User.deleteOne({_id : id});
+    console.log(result)
+}
+removeUser('6596ee55ca67bfc63016fb3d')
 // getUsers();
 // createUser();
